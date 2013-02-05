@@ -50,5 +50,23 @@ exports.registryTest = nodeunit.testCase({
                 });
             });
         });
+    },
+    'testKeys': function(test) {
+        var reg = require('../lib/mongoose_registry');
+        var testSchema = new Schema({});
+        var testSchema2 = new Schema({});
+        var testSchema3 = new Schema({});
+        
+        reg.add(testSchema, 't', function(success) {
+            reg.add(testSchema2, 't2', function(success) {
+                reg.add(testSchema3, 't3', function(success) {
+                    reg.getKeys(function(keys) {
+                        var testArray = ['t', 't2', 't3'];
+                        test.deepEqual(testArray, keys);
+                        test.done();
+                    })
+                })
+            })
+        })
     }
 });
