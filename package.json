@@ -1,0 +1,35 @@
+{
+  "name": "mongoose-schema-registry",
+  "description": "Creates a schema registry that can be used to store and retrieve mongoose schemas.",
+  "tags": [
+    "mongoose",
+    "schema",
+    "registry",
+    "ghiraldi"
+  ],
+  "version": "0.0.1",
+  "author": {
+    "name": "John O'Connor",
+    "email": "sax1johno@gmail.com"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+   "engines": {
+    "node": "0.8.1",
+    "npm":  "1.1.49"
+  },
+  "main": "./lib/mongoose_registry",
+  "dependencies": {
+    "mongoose": "*",
+    "underscore": "*",
+    "nodeunit": "*"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "github.com/sax1johno/mongoose-schema-registry.git"
+  },
+  "_id": "mongoose_registry@0.0.1",
+  "_from": "mongoose_registry@0.0.1"
+}
