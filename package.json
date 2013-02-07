@@ -15,10 +15,6 @@
   "directories": {
     "lib": "lib"
   },
-   "engines": {
-    "node": "0.8.1",
-    "npm":  "1.1.49"
-  },
   "main": "./lib/mongoose_registry",
   "dependencies": {
     "mongoose": "*",

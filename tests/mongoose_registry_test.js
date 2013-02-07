@@ -21,6 +21,19 @@ exports.registryTest = nodeunit.testCase({
             })
         })
     },
+    'testAddEvent': function(test) {
+        var reg = require('../lib/mongoose_registry');
+        var testSchema = new Schema({
+            title:      String,
+            test:       String
+        });
+        reg.on('add', function(tag, schema) {
+            console.log("Tag " + tag + " was added with schema " + JSON.stringify(schema));
+            test.done();
+        });
+        reg.add(testSchema, 't');
+        
+    },
     'testRemove': function(test) {
         var reg = require('../lib/mongoose_registry');
         var testSchema = new Schema({
@@ -36,6 +49,19 @@ exports.registryTest = nodeunit.testCase({
             });
         });
     },
+    'testRemoveEvent': function(test) {
+        var reg = require('../lib/mongoose_registry');
+        var testSchema = new Schema({
+            
+        });
+        reg.on('remove', function(schema) {
+            console.log("schema = " + JSON.stringify(schema));
+            test.done();
+        })
+        reg.add(testSchema, 't', function(success) {
+            reg.remove('t');
+        });
+    },    
     'testGet': function(test) {
         var reg = require('../lib/mongoose_registry');
         var testSchema = new Schema({
