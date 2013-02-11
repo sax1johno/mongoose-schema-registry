@@ -13,7 +13,7 @@ exports.registryTest = nodeunit.testCase({
             title:      String,
             test:       String
         });
-        reg.add(testSchema, 't', function(success) {
+        reg.add('t', testSchema, function(success) {
             test.ok(success, "Registration adding should've succceeded");
             reg.log(function(schemas) {
                 console.log(JSON.stringify(schemas));
@@ -31,7 +31,7 @@ exports.registryTest = nodeunit.testCase({
             console.log("Tag " + tag + " was added with schema " + JSON.stringify(schema));
             test.done();
         });
-        reg.add(testSchema, 't');
+        reg.add('t', testSchema);
         
     },
     'testRemove': function(test) {
@@ -39,7 +39,7 @@ exports.registryTest = nodeunit.testCase({
         var testSchema = new Schema({
             
         });
-        reg.add(testSchema, 't', function(success) {
+        reg.add('t', testSchema, function(success) {
             reg.remove('t', function(success) {
                 test.ok(success, 'Should have removed the schema from the registry');
                 reg.log(function(schemas) {
@@ -58,7 +58,7 @@ exports.registryTest = nodeunit.testCase({
             console.log("schema = " + JSON.stringify(schema));
             test.done();
         })
-        reg.add(testSchema, 't', function(success) {
+        reg.add('t', testSchema, function(success) {
             reg.remove('t');
         });
     },    
@@ -67,7 +67,7 @@ exports.registryTest = nodeunit.testCase({
         var testSchema = new Schema({
             
         });
-        reg.add(testSchema, 't', function(success) {
+        reg.add('t', testSchema, function(success) {
             reg.get('t', function(schema) {
                 test.deepEqual(schema, testSchema, 'Schemas should be deep equal to each other.');
                 reg.log(function(schemas) {
@@ -83,9 +83,9 @@ exports.registryTest = nodeunit.testCase({
         var testSchema2 = new Schema({});
         var testSchema3 = new Schema({});
         
-        reg.add(testSchema, 't', function(success) {
-            reg.add(testSchema2, 't2', function(success) {
-                reg.add(testSchema3, 't3', function(success) {
+        reg.add('t', testSchema, function(success) {
+            reg.add('t2', testSchema2, function(success) {
+                reg.add('t3', testSchema3, function(success) {
                     reg.getKeys(function(keys) {
                         var testArray = ['t', 't2', 't3'];
                         test.deepEqual(testArray, keys);
