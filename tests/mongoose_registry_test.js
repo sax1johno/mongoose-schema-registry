@@ -87,6 +87,7 @@ exports.registryTest = nodeunit.testCase({
             reg.add(testSchema2, 't2', function(success) {
                 reg.add(testSchema3, 't3', function(success) {
                     reg.getKeys(function(keys) {
+                        console.log("keys = " + JSON.stringify(keys));
                         var testArray = ['t', 't2', 't3'];
                         test.deepEqual(testArray, keys);
                         test.done();
