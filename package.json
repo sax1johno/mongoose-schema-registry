@@ -26,6 +26,6 @@
     "type": "git",
     "url": "github.com/sax1johno/mongoose-schema-registry.git"
   },
-  "_id": "mongoose_registry@0.0.5",
-  "_from": "mongoose_registry@0.0.5"
+  "_id": "mongoose_registry@0.0.6",
+  "_from": "mongoose_registry@0.0.6"
 }
