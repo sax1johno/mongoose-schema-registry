@@ -7,7 +7,7 @@
     "registry",
     "ghiraldi"
   ],
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": {
     "name": "John O'Connor",
     "email": "sax1johno@gmail.com"
@@ -26,6 +26,6 @@
     "type": "git",
     "url": "github.com/sax1johno/mongoose-schema-registry.git"
   },
-  "_id": "mongoose_registry@0.0.8",
-  "_from": "mongoose_registry@0.0.8"
+  "_id": "mongoose_registry@0.0.9",
+  "_from": "mongoose_registry@0.0.9"
 }
