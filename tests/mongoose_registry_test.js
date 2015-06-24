@@ -68,7 +68,7 @@ exports.registryTest = nodeunit.testCase({
             
         });
         reg.add('t', testSchema, function(success) {
-            reg.get('t', function(schema) {
+            reg.getSchema('t', function(schema) {
                 test.deepEqual(schema, testSchema, 'Schemas should be deep equal to each other.');
                 reg.log(function(schemas) {
                     console.log(JSON.stringify(schemas));
@@ -90,17 +90,17 @@ exports.registryTest = nodeunit.testCase({
                         var testArray = ['t', 't2', 't3'];
                         test.deepEqual(testArray, keys);
                         test.done();
-                    })
-                })
-            })
-        })
+                    });
+                });
+            });
+        });
     },
     'testType': function(test) {
         var reg = require('../lib/mongoose_registry');
         var testSchema = new Schema({});
         
         reg.add('t', testSchema, function(success) {
-            reg.get('t', function(schema) {
+            reg.getSchema('t', function(schema) {
                 var testSchema = schema;
                 test.ok(testSchema instanceof Schema, 'Retrieved schema should be an instance of mongoose.Schema') 
                 test.done();

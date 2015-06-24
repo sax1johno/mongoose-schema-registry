@@ -19,7 +19,9 @@
   "dependencies": {
     "mongoose": "*",
     "underscore": "*",
-    "nodeunit": "*"
+    "nodeunit": "*",
+    "mocha": "*",
+    "chai": "*"
   },
   "devDependencies": {},
   "repository": {
