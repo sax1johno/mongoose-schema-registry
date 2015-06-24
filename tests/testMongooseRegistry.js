@@ -86,7 +86,7 @@ describe('mongoose_registry', function() {
         it("should get all of the keys from the registry", function(done) {
             var reg = require('../lib/mongoose_registry');
             var testSchema = new Schema({});
-            
+
             reg.add('t', testSchema, function(success) {
                 reg.getSchema('t', function(schema) {
                     var testSchema = schema;
@@ -97,16 +97,5 @@ describe('mongoose_registry', function() {
                 });
             });
         });
-    });    
+    });
 });
-
-        // var reg = require('../lib/mongoose_registry');
-        // var testSchema = new Schema({});
-        
-        // reg.add('t', testSchema, function(success) {
-        //     reg.getSchema('t', function(schema) {
-        //         var testSchema = schema;
-        //         test.ok(testSchema instanceof Schema, 'Retrieved schema should be an instance of mongoose.Schema') 
-        //         test.done();
-        //     });
-        // })
