@@ -15,7 +15,7 @@ describe('mongoose_registry', function() {
                 title:      String,
                 test:       String
             });
-            mongooseRegistry.add('t', testSchema, function(success) {
+            mongooseRegistry.add('t', testSchema, function(err, schema) {
                 mongooseRegistry.log(function(schemas) {
                     console.log(JSON.stringify(schemas));
                     done();
@@ -29,8 +29,8 @@ describe('mongoose_registry', function() {
             var reg = require('../lib/mongoose_registry');
             var testSchema = new Schema({
             });
-            reg.add('t', testSchema, function(success) {
-                reg.remove('t', function(success) {
+            reg.add('t', testSchema, function(err, schema) {
+                reg.remove('t', function(err, schema) {
                     reg.log(function(schemas) {
                         console.log(JSON.stringify(schemas));
                         // done(success);
@@ -46,8 +46,8 @@ describe('mongoose_registry', function() {
             var reg = require('../lib/mongoose_registry');
             var testSchema = new Schema({
             });
-            reg.add('t', testSchema, function(success) {
-                reg.getSchema('t', function(schema) {
+            reg.add('t', testSchema, function(err, schema) {
+                reg.getSchema('t', function(err, schema) {
                     expect(schema).to.deep.equal(testSchema);
                     // assert.deepEqual(schema, testSchema, 'Schemas should be deep equal to each other.');
                     // test.deepEqual();
@@ -67,10 +67,10 @@ describe('mongoose_registry', function() {
             var testSchema2 = new Schema({});
             var testSchema3 = new Schema({});
             
-            reg.add('t', testSchema, function(success) {
-                reg.add('t2', testSchema2, function(success) {
-                    reg.add('t3', testSchema3, function(success) {
-                        reg.getKeys(function(keys) {
+            reg.add('t', testSchema, function(err, schema) {
+                reg.add('t2', testSchema2, function(err, schema) {
+                    reg.add('t3', testSchema3, function(err, schema) {
+                        reg.getKeys(function(err, keys) {
                             var testArray = ['t', 't2', 't3'];
                             expect(testArray).to.deep.equal(keys);
                             // test.deepEqual(testArray, keys);
@@ -87,8 +87,8 @@ describe('mongoose_registry', function() {
             var reg = require('../lib/mongoose_registry');
             var testSchema = new Schema({});
 
-            reg.add('t', testSchema, function(success) {
-                reg.getSchema('t', function(schema) {
+            reg.add('t', testSchema, function(err, schema) {
+                reg.getSchema('t', function(err, schema) {
                     var testSchema = schema;
                     expect(testSchema).to.be.an.instanceof(Schema);
                     // test.ok(testSchema instanceof Schema, 'Retrieved schema should be an instance of mongoose.Schema') 
